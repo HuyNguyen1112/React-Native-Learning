@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, FlatList, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
 
@@ -25,6 +25,14 @@ export default function App() {
     { id: 8, title: "Tony Kroos" },
     { id: 9, title: "Nine" },
     { id: 10, title: "M10" },
+    { id: 11, title: "M10" },
+    { id: 12, title: "M10" },
+    { id: 13, title: "M10" },
+    { id: 14, title: "M10" },
+    { id: 15, title: "M10" },
+    { id: 16, title: "M10" },
+    { id: 17, title: "M10" },
+    { id: 18, title: "M10" },
   ])
 
 
@@ -46,13 +54,24 @@ export default function App() {
         title='submit'
         onPress={() => alert('Hello')}
       />
-      <ScrollView >
+
+      <FlatList
+        data={todoList}
+        keyExtractor={item => item.id + ""}
+        renderItem={({ item }) => {
+          return (
+            <Text key={item.id} style={styles.todo}> {item.title} 1 </Text>
+          )
+        }}
+      />
+
+      {/* <ScrollView >
         {todoList.map(todo => {
           return (
-            <Text style={styles.todo}> {todo.title} </Text>
+            <Text key={todo.id} style={styles.todo}> {todo.title} </Text>
           )
         })}
-      </ScrollView>
+      </ScrollView> */}
     </View>
   );
 }
