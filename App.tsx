@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
 
@@ -20,6 +20,14 @@ export default function App() {
       <Text style={styles.text}>{name}</Text>
       <Text style={styles.text}>{person.age}</Text>
       <Text style={styles.text}>{JSON.stringify(person)}</Text>
+      <TextInput
+        onChangeText={value => setName(value)}
+        autoCapitalize='none'
+        autoCorrect={false}
+        // keyboardType='numeric'
+        // maxLength={2}
+        // multiline={true}
+        style={styles.textInput} />
     </View>
   );
 }
@@ -37,4 +45,9 @@ const styles = StyleSheet.create({
     fontSize: 40,
     color: 'red',
   },
+  textInput: {
+    borderColor: "black",
+    borderWidth: 2,
+    padding: 5,
+  }
 });
