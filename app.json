@@ -3,6 +3,7 @@
     "name": "sample-app",
     "slug": "sample-app",
     "version": "1.0.0",
+    "newArchEnabled": true,
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
