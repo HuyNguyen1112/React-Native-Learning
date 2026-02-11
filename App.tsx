@@ -1,20 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Alert, Keyboard, StyleSheet, TouchableWithoutFeedback, View } from 'react-native';
 import InputTodo from './components/todo/input.todo';
 import ListTodo from './components/todo/list.todo';
 
 export default function App() {
 
-
-
-  const [person, setPerson] = useState<{
-    name: string;
-    age: number;
-  }>({
-    name: "Vinh Huy",
-    age: 25,
-  })
 
   const [todoList, setTodoList] = useState<ITodo[]>([])
   const addTodo = (title: String) => {
@@ -29,19 +20,20 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <InputTodo
-        addTodo={addTodo}
-      />
+    <TouchableWithoutFeedback
+      onPress={() => Keyboard.dismiss}
+    >
+      <View style={styles.container}>
+        <InputTodo
+          addTodo={addTodo}
+        />
 
-      <ListTodo
-        todoList={todoList}
-        deleteTodo={deleteTodo}
-      />
-
-
-
-    </View>
+        <ListTodo
+          todoList={todoList}
+          deleteTodo={deleteTodo}
+        />
+      </View>
+    </TouchableWithoutFeedback>
   );
 }
 

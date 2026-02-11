@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Button, StyleSheet, TextInput, View } from "react-native"
+import { Alert, Button, StyleSheet, TextInput, View } from "react-native"
 
 const style = StyleSheet.create({
     todoInput: {
@@ -12,17 +12,23 @@ const style = StyleSheet.create({
 })
 
 interface IProps {
-    addTodo: (value: String) => void;
+    addTodo: (value: string) => void;
 }
 
 const InputTodo = (props: IProps) => {
 
     const { addTodo } = props
 
-    const [name, setName] = useState<String>("")
+    const [name, setName] = useState<string>("")
 
     const handleAddNewTodo = () => {
+        if (!name) {
+            Alert.alert("Error", "Null")
+            return;
+        }
+
         addTodo(name);
+        setName("");
     }
 
     return (
@@ -30,6 +36,7 @@ const InputTodo = (props: IProps) => {
             <View>
                 <TextInput
                     onChangeText={value => setName(value)}
+                    value={name}
                     autoCapitalize='none'
                     autoCorrect={false}
                     // keyboardType='numeric'
