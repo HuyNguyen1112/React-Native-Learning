@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
         borderColor: "black",
         borderWidth: 2,
         borderRadius: 2,
+        marginTop: 10,
     }
 })
 
