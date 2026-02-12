@@ -29,7 +29,10 @@ const MineButton = (props: IProps) => {
     const { title, onPress } = props
 
     return (
-        <Pressable style={({ pressed }) => ({ opacity: pressed === true ? 0.5 : 1 })}
+        <Pressable style={({ pressed }) => ({
+            opacity: pressed === true ? 0.5 : 1,
+            alignSelf: "center"
+        })}
             onPress={() => onPress()}>
             <View style={styles.btnContainer}>
                 <AntDesign name="pluscircle" size={24} color="black" />

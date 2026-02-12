@@ -3,7 +3,10 @@
     "name": "sample-app",
     "slug": "sample-app",
     "version": "1.0.0",
-    "newArchEnabled": true,
+    "newArchEnabled": false,
+    "experiments": {
+      "bridgeless": false
+    },
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
